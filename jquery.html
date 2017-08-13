@@ -1,21 +1,34 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Demo</title>
-</head>
-<body>
-    <a href="http://jquery.com/">jQuery</a>
-    <script src="jquery.js"></script>
-    <script>
+    <head>
+        <meta charset="utf-8">
+        <title>Demo</title>
+        <style>
+            a.test {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="http://jquery.com/">jQuery</a>
+        <script src="jquery/jquery.js"></script>
+        <script>
 
-        $( document ).ready(function() {
-            $( "a" ).click(function( event ) {
-                alert( "Thanks for visiting!" );
+            $(document).ready(function() {
+                $("a").click(function( event ) {
+                    alert("Thanks for visiting!");
+                    event.preventDefault();
+                });
             });
 
-        });
+            $("a").addClass("test");
+            $("a").removeClass("test");
 
-    </script>
-</body>
+            $("a").click(function() {
+                event.preventDefault();
+                $(this).hide("slow");
+            });
+
+        </script>
+    </body>
 </html>
